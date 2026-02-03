@@ -99,9 +99,25 @@ bird = {
 	for (var i = 0; i < this._pipes.length; i++) {
 		var p = this._pipes[i];
 
-		s_pipeNorth.draw(ctx, p.x, p.top - s_pipeNorth.height);
+		ctx.drawImage(
+			s_pipeNorth.img,
+			s_pipeNorth.x, s_pipeNorth.y,
+			s_pipeNorth.width, s_pipeNorth.height,
+			p.x,
+			0,
+			s_pipeNorth.width,
+			p.top
+		);
 
-		s_pipeSouth.draw(ctx, p.x, p.bottom);
+		ctx.drawImage(
+			s_pipeSouth.img,
+			s_pipeSouth.x, s_pipeSouth.y,
+			s_pipeSouth.width, s_pipeSouth.height,
+			p.x,
+			p.bottom,
+			s_pipeSouth.width,
+			height - p.bottom - s_fg.height
+		);
 	}
 }
 
